@@ -63,7 +63,6 @@ spec:
           command:
             - local-path-provisioner
             - start
-            - --debug
           env:
             - name: NODE_NAME
               valueFrom:
