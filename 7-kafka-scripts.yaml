@@ -7,13 +7,13 @@ data:
   test-producer.sh: |
     #!/bin/bash
     kafka-console-producer.sh \
-      --broker-list kafka-0.kafka-service.kafka.svc.cluster.local:9092,kafka-1.kafka-service.kafka.svc.cluster.local:9092,kafka-2.kafka-service.kafka.svc.cluster.local:9092 \
+      --broker-list kafka-cluster-kafka-0.kafka-cluster-kafka-brokers.kafka.svc.cluster.local:9092,kafka-cluster-kafka-1.kafka-cluster-kafka-brokers.kafka.svc.cluster.local:9092,kafka-cluster-kafka-2.kafka-cluster-kafka-brokers.kafka.svc.cluster.local:9092 \
       --topic test-topic
 
   test-consumer.sh: |
     #!/bin/bash
     kafka-console-consumer.sh \
-      --bootstrap-server kafka-0.kafka-service.kafka.svc.cluster.local:9092,kafka-1.kafka-service.kafka.svc.cluster.local:9092,kafka-2.kafka-service.kafka.svc.cluster.local:9092 \
+      --bootstrap-server kafka-cluster-kafka-0.kafka-cluster-kafka-brokers.kafka.svc.cluster.local:9092,kafka-cluster-kafka-1.kafka-cluster-kafka-brokers.kafka.svc.cluster.local:9092,kafka-cluster-kafka-2.kafka-cluster-kafka-brokers.kafka.svc.cluster.local:9092 \
       --topic test-topic \
       --from-beginning
 
@@ -21,7 +21,7 @@ data:
     #!/bin/bash
     kafka-topics.sh \
       --create \
-      --bootstrap-server kafka-0.kafka-service.kafka.svc.cluster.local:9092,kafka-1.kafka-service.kafka.svc.cluster.local:9092,kafka-2.kafka-service.kafka.svc.cluster.local:9092 \
+      --bootstrap-server kafka-cluster-kafka-0.kafka-cluster-kafka-brokers.kafka.svc.cluster.local:9092,kafka-cluster-kafka-1.kafka-cluster-kafka-brokers.kafka.svc.cluster.local:9092,kafka-cluster-kafka-2.kafka-cluster-kafka-brokers.kafka.svc.cluster.local:9092 \
       --topic test-topic \
       --partitions 3 \
       --replication-factor 3 \
@@ -31,5 +31,5 @@ data:
     #!/bin/bash
     kafka-topics.sh \
       --describe \
-      --bootstrap-server kafka-0.kafka-service.kafka.svc.cluster.local:9092,kafka-1.kafka-service.kafka.svc.cluster.local:9092,kafka-2.kafka-service.kafka.svc.cluster.local:9092 \
+      --bootstrap-server kafka-cluster-kafka-0.kafka-cluster-kafka-brokers.kafka.svc.cluster.local:9092,kafka-cluster-kafka-1.kafka-cluster-kafka-brokers.kafka.svc.cluster.local:9092,kafka-cluster-kafka-2.kafka-cluster-kafka-brokers.kafka.svc.cluster.local:9092 \
       --topic test-topic
